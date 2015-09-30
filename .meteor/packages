@@ -1,0 +1,23 @@
+# Meteor packages used by this project, one per line.
+# Check this file (and the other files in this directory) into your repository.
+#
+# 'meteor add' and 'meteor remove' will edit this file for you,
+# but you can also edit it by hand.
+
+meteor-platform
+sach:flow-db-admin
+kadira:flow-router
+kadira:blaze-layout
+dburles:collection-helpers
+aldeed:collection2
+accounts-base
+accounts-password
+alanning:roles
+twbs:bootstrap
+fortawesome:fontawesome
+ian:accounts-ui-bootstrap-3
+kadira:react-layout
+react
+mpowaga:autoform-summernote
+tsega:bootstrap3-datetimepicker@=3.1.3_3
+aldeed:autoform-bs-datetimepicker

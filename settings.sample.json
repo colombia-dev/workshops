@@ -1,0 +1,6 @@
+{
+  "admins": ["youremail@service.com", "yourotheradmin@service.com"],
+  "public" : {
+       "PortalTitle": "JSConfCO Workshops"
+   }
+}

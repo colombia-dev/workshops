@@ -1,5 +1,7 @@
 {
   "admins": ["youremail@service.com", "yourotheradmin@service.com"],
+  "email_from": "JSConfCO Workshops <hola@jsconf.co>",
+  "mail_url": "smtp://username%40gmail.com:password@smtp.gmail.com:465/",
   "public" : {
        "PortalTitle": "JSConfCO Workshops"
    }

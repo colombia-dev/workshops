@@ -28,3 +28,9 @@ Meteor.methods({
     return false;
   }
 });
+
+Meteor.startup(function () {
+   process.env.MAIL_URL = Meteor.settings.mail_url;
+   Accounts.emailTemplates.from = Meteor.settings.email_from;
+   Accounts.emailTemplates.siteName = Meteor.settings.public.PortalTitle;
+});

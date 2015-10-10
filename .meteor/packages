@@ -13,7 +13,6 @@ aldeed:collection2
 accounts-base
 accounts-password
 alanning:roles
-twbs:bootstrap
 fortawesome:fontawesome
 ian:accounts-ui-bootstrap-3
 kadira:react-layout
@@ -21,3 +20,4 @@ react
 mpowaga:autoform-summernote
 tsega:bootstrap3-datetimepicker@=3.1.3_3
 aldeed:autoform-bs-datetimepicker
+fourseven:scss

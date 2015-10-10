@@ -10,7 +10,14 @@ MainLayout = React.createClass({
       <header>
          <div className="navbar navbar-default" role="navigation">
              <div className="navbar-header">
-                 <a className="navbar-brand" href="#">{this.data.portalTitle}</a>
+                 <a className="navbar-brand" href="#">
+                 <img className="navbar__logo" src="http://jsconf.co/static/img/logo.1cb389a17782.png" alt="JSConf.co" width="54" height="54"/>
+                  <span className="navbar__text">
+                    <span>Colombia</span>
+                    <span>Workshops</span>
+                    <span>Oct 16th 2015</span>
+                  </span>
+                 </a>
                  <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
                      <span className="sr-only">Toggle navigation</span>
                      <span className="icon-bar"></span>

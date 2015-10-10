@@ -10,7 +10,7 @@ MainLayout = React.createClass({
       <header>
          <div className="navbar navbar-default" role="navigation">
              <div className="navbar-header">
-                 <a className="navbar-brand" href="#">
+                 <a className="navbar-brand" href="http://jsconf.co">
                  <img className="navbar__logo" src="http://jsconf.co/static/img/logo.1cb389a17782.png" alt="JSConf.co" width="54" height="54"/>
                   <span className="navbar__text">
                     <span>Colombia</span>
@@ -42,9 +42,7 @@ MainLayout = React.createClass({
           </div>
         </div>
       </main>
-      <footer>
-        Made with love - Colombia.dev
-      </footer>
+      <Footer/>
     </div>
   }
 });

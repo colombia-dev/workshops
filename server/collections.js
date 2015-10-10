@@ -1,5 +1,3 @@
-console.log(typeof workshops)
-
 // Publishing collections
 Meteor.publish('workshops', function() {
   return Workshops.find({});
@@ -35,13 +33,4 @@ Meteor.startup(function () {
    process.env.MAIL_URL = Meteor.settings.mail_url;
    Accounts.emailTemplates.from = Meteor.settings.email_from;
    Accounts.emailTemplates.siteName = Meteor.settings.public.PortalTitle;
-});
-
-
-Workshops.allow({
-  insert: function (userId, doc) {
-    /* user and doc checks ,
-    return true to allow insert */
-    return true;
-  }
 });

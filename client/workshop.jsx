@@ -27,7 +27,7 @@ Workshop = React.createClass({
     var userDates = (user && user.profile.dates) ? user.profile.dates.map((date) => date.toString()) : [];
 
     if (user && attendees.indexOf(user._id) === -1 && attendees.length < this.props.workshop.seats && userDates.indexOf(wdate) === -1) {
-      actionButton = <button type="button" className="btn btn-primary" onClick={this.register}>Register to attend</button>;
+      actionButton = <button type="button" className="btn btn-success" onClick={this.register}>Register to attend</button>;
     }
     else if (user && attendees.indexOf(user._id) !== -1) {
       actionButton = <button type="button" className="btn btn-danger" onClick={this.cancelRegistration}>Cancel registration</button>;
@@ -46,13 +46,13 @@ Workshop = React.createClass({
       </div>
       <div className="panel-body">
         <div className="row">
-          <div className="col-md-8 col-xs-14">
+          <div className="col-md-9 col-xs-14">
             Starting: {this.props.workshop.startAt.toString()}
             <hr/>
             {this.props.workshop.intro}
             <div className='hidden' dangerouslySetInnerHTML={{__html: this.props.workshop.description}}></div>
           </div>
-          <div className="col-md-4 col-xs-4 text-right">
+          <div className="col-md-2 col-xs-4">
             {actionButton}
           </div>
         </div>

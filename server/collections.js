@@ -43,5 +43,8 @@ Workshops.allow({
     /* user and doc checks ,
     return true to allow insert */
     return true;
+  },
+  remove: function (userId) {
+    return true;
   }
 });

@@ -38,13 +38,11 @@ Meteor.startup(function () {
 });
 
 
-Workshops.allow({
-  insert: function (userId, doc) {
-    /* user and doc checks ,
-    return true to allow insert */
-    return true;
-  },
-  remove: function (userId) {
-    return true;
-  }
-});
+// Workshops.allow({
+//   insert: function (userId, doc) {
+//     return true;
+//   },
+//   remove: function (userId) {
+//     return true;
+//   }
+// });

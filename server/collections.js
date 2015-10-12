@@ -1,5 +1,3 @@
-console.log(typeof workshops)
-
 // Publishing collections
 Meteor.publish('workshops', function() {
   return Workshops.find({});
@@ -28,6 +26,27 @@ Meteor.methods({
       return Workshops.update({_id: wid}, {$push: {attendees: this.userId}});
     }
     return false;
+  },
+  loadAttendees: function() {
+    var user = Meteor.user();
+    if (user && Roles.userIsInRole(user, ['admin'])) {
+      var attendees = JSON.parse(Assets.getText('attendees.json'));
+      for (var i = 0; i < attendees.length; i++) {
+        var account = Meteor.users.findOne({'emails.address': attendees[i].email});
+        if (!account) {
+          var rnd = Math.floor(Math.random() * (999 - 100 + 1)) + 100
+          Accounts.createUser({
+            email: attendees[i].email,
+            password: attendees[i].firstname + rnd,
+            profile: {
+              name: attendees[i].name,
+              gender: attendees[i].gender,
+              ticket: attendees[i].ticket
+            }
+          });
+        }
+      }
+    }
   }
 });
 
@@ -36,13 +55,3 @@ Meteor.startup(function () {
    Accounts.emailTemplates.from = Meteor.settings.email_from;
    Accounts.emailTemplates.siteName = Meteor.settings.public.PortalTitle;
 });
-
-
-// Workshops.allow({
-//   insert: function (userId, doc) {
-//     return true;
-//   },
-//   remove: function (userId) {
-//     return true;
-//   }
-// });

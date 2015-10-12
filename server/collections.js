@@ -50,6 +50,17 @@ Meteor.methods({
   }
 });
 
+function onlyAdmin (userId) {
+  var u = Meteor.users.findOne({_id:userId});
+  return (u && u.isAdmin);
+}
+
+Workshops.allow({
+  insert: onlyAdmin,
+  remove: onlyAdmin,
+  update: onlyAdmin
+});
+
 Meteor.startup(function () {
    process.env.MAIL_URL = Meteor.settings.mail_url;
    Accounts.emailTemplates.from = Meteor.settings.email_from;

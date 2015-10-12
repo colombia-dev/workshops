@@ -1,8 +1,11 @@
 {
-  "admins": ["youremail@service.com", "yourotheradmin@service.com"],
-  "email_from": "JSConfCO Workshops <hola@jsconf.co>",
-  "mail_url": "smtp://username%40gmail.com:password@smtp.gmail.com:465/",
+  "admins": [
+    "youradmin@service.com",
+    "yourotheradmin@service.com"
+  ],
+  "email_from": "JSConf Colombia <hola@jsconf.co>",
+  "mail_url": "smtp://hola@jsconf.co:MANDRILL_KEY@smtp.mandrillapp.com:587/",
   "public" : {
-       "PortalTitle": "JSConfCO Workshops"
+       "PortalTitle": "JSConf Colombia | Workshops"
    }
 }

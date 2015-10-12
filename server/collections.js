@@ -52,7 +52,7 @@ Meteor.methods({
 
 function onlyAdmin (userId) {
   var user = Meteor.users.findOne({_id:userId});
-  return (u && Roles.userIsInRole(user, ['admin']));
+  return (user && Roles.userIsInRole(user, ['admin']));
 }
 
 Workshops.allow({

@@ -1,0 +1,10 @@
+[
+    {
+        "name": "Alberto Gonzalez",
+        "firstname": "Alberto",
+        "lastname": "Gonzalez",
+        "email": "alberto.gonzalez@somewhere.co",
+        "gender": "male",
+        "ticket": "Regular (JSConf.co)"
+    }
+]

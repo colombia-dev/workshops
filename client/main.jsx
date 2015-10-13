@@ -8,7 +8,7 @@ MainLayout = React.createClass({
   render() {
     var noUser;
 
-    if (!this.data.currentUser) {
+    if (!Meteor.user()) {
       noUser = <div className="alert alert-warning" role="alert">If you don't have a user yet, please follow these instructions to register and get your spot:
         <span/> <a href="http://jsconf.co/workshops/" className="text-info" target="_blank">Registration Instructions</a>
       </div>

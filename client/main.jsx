@@ -6,6 +6,14 @@ MainLayout = React.createClass({
     };
   },
   render() {
+    var noUser;
+
+    if (!this.data.currentUser) {
+      noUser = <div className="alert alert-warning" role="alert">If you don't have a user yet, please follow these instructions to register and get your spot:
+        <span/> <a href="http://jsconf.co/workshops/" className="text-info" target="_blank">Registration Instructions</a>
+      </div>
+    }
+
     return <div>
       <header>
          <div className="navbar navbar-default" role="navigation">
@@ -32,6 +40,7 @@ MainLayout = React.createClass({
       </header>
       <main>
         <div className="container">
+          {noUser}
           <div className="row">
             <div className="col-md-9 col-xs-13">
               <AllWorkshops />

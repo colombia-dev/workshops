@@ -2,13 +2,14 @@ MainLayout = React.createClass({
   mixins: [ReactMeteorData],
   getMeteorData: function () {
     return {
-      portalTitle: Meteor.settings['public'].PortalTitle
+      portalTitle: Meteor.settings['public'].PortalTitle,
+      currentUser: Meteor.user()
     };
   },
   render() {
     var noUser;
 
-    if (!Meteor.user()) {
+    if (!this.data.currentUser) {
       noUser = <div className="alert alert-warning" role="alert">If you don't have a user yet, please follow these instructions to register and get your spot:
         <span/> <a href="http://jsconf.co/workshops/" className="text-info" target="_blank">Registration Instructions</a>
       </div>

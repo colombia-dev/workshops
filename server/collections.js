@@ -21,7 +21,7 @@ Meteor.methods({
       });
     }
 
-    if (attendees.length < cWorkshop.seats && userDates.indexOf(wdate) === -1) {
+    if (attendees.length < cWorkshop.seats && userDates.indexOf(wdate) === -1 && userDates.length < Meteor.settings.public.limit) {
       Meteor.users.update({_id: this.userId}, {$push: {'profile.dates': date}});
       return Workshops.update({_id: wid}, {$push: {attendees: this.userId}});
     }
@@ -59,6 +59,12 @@ Workshops.allow({
   insert: onlyAdmin,
   remove: onlyAdmin,
   update: onlyAdmin
+});
+
+Workshops.helpers({
+  attendeesList: function () {
+    return '<a href="/attendees-list">Attendees list</a>';
+  }
 });
 
 Meteor.startup(function () {

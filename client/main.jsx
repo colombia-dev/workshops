@@ -24,7 +24,7 @@ MainLayout = React.createClass({
                   <span className="navbar__text">
                     <span>Colombia</span>
                     <span>Workshops</span>
-                    <span>Oct 16th 2015</span>
+                    <span>Oct 7th 2016</span>
                   </span>
                  </a>
                  <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">

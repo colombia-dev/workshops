@@ -4,7 +4,8 @@ Workshop = React.createClass({
   mixins: [ReactMeteorData],
   getMeteorData() {
     return {
-      currentUser: Meteor.user()
+      currentUser: Meteor.user(),
+      limit: Meteor.settings['public'].limit,
     };
   },
   propTypes: {
@@ -21,18 +22,20 @@ Workshop = React.createClass({
     // Getting the right option for current user
     var actionButton = '';
     var user = this.data.currentUser;
+    var limit = this.data.limit;
     var attendees = this.props.workshop.attendees || [];
     var seatsAvailable = this.props.workshop.seats - attendees.length;
     var wdate = this.props.workshop.startAt.toString();
     var userDates = (user && user.profile.dates) ? user.profile.dates.map((date) => date.toString()) : [];
+    var userSpots = (user && user.profile.dates) ? user.profile.dates.length : 0;
 
-    if (user && attendees.indexOf(user._id) === -1 && attendees.length < this.props.workshop.seats && userDates.indexOf(wdate) === -1) {
+    if (user && attendees.indexOf(user._id) === -1 && attendees.length < this.props.workshop.seats && userDates.indexOf(wdate) === -1 && userSpots < limit ) {
       actionButton = <button type="button" className="btn btn-primary" onClick={this.register}>Register to attend</button>;
     }
     else if (user && attendees.indexOf(user._id) !== -1) {
       actionButton = <button type="button" className="btn btn-danger" onClick={this.cancelRegistration}>Cancel registration</button>;
     }
-    else if (userDates.indexOf(wdate) !== -1) {
+    else if (userDates.indexOf(wdate) !== -1 || userSpots >= limit) {
       actionButton = <span className="btn btn-warning">Incompatible schedule</span>
     }
     else if (attendees.length >= this.props.workshop.seats) {

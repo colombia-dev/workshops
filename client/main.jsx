@@ -16,23 +16,24 @@ MainLayout = React.createClass({
     }
 
     return <div>
+      <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
       <header>
          <div className="navbar navbar-default" role="navigation">
              <div className="navbar-header">
-                 <a className="navbar-brand" href="http://jsconf.co">
-                 <img className="navbar__logo" src="http://jsconf.co/static/img/logo.1cb389a17782.png" alt="JSConf.co" width="54" height="54"/>
-                  <span className="navbar__text">
-                    <span>Colombia</span>
-                    <span>Workshops</span>
-                    <span>Oct 7th 2016</span>
+                <a className="navbar-brand" href="http://jsconf.co">
+                  <span className="navbar__conference">
+                    ScaleConf Colombia
                   </span>
-                 </a>
-                 <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
-                     <span className="sr-only">Toggle navigation</span>
-                     <span className="icon-bar"></span>
-                     <span className="icon-bar"></span>
-                     <span className="icon-bar"></span>
-                 </button>
+                  <span className="navbar__date">
+                    Medellín, Mar 24-25th 2017
+                  </span>
+                </a>
+                <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+                  <span className="sr-only">Toggle navigation</span>
+                  <span className="icon-bar"></span>
+                  <span className="icon-bar"></span>
+                  <span className="icon-bar"></span>
+                </button>
              </div>
              <div className="navbar-collapse collapse">
                 <AccountsUIWrapper />

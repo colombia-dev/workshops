@@ -6,6 +6,9 @@
   "email_from": "JSConf Colombia <hola@jsconf.co>",
   "mail_url": "smtp://hola@jsconf.co:MANDRILL_KEY@smtp.mandrillapp.com:587/",
   "public" : {
-       "PortalTitle": "JSConf Colombia | Workshops"
+    "PortalTitle": "JSConf Colombia | Workshops",
+    "limit": 2,
+    "startDate": "2017-03-01T15:00:00.000Z",
+    "unlimitedDate": "2017-03-21T15:00:00.000Z"
    }
 }

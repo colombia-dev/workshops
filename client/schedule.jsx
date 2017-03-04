@@ -24,7 +24,8 @@ Schedule = React.createClass({
     var userBlock = '';
     if (this.data.currentUser) {
         userBlock = <div>
-          <h4>Schedule for {this.data.currentUser.profile.name}</h4>
+          <h4>Schedule for {this.data.currentUser.profile ?
+              this.data.currentUser.profile.name : 'You'}</h4>
             <ul className="list-group" key="scheduled">
               {this.renderWorkshops()}
             </ul>

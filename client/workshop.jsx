@@ -8,7 +8,18 @@ function printAttendeeList (attendees) {
       return (
         <div>
           <b>Attendees:</b>
-          {attendees.map(printAttendee)}
+          <table>
+            <thead>
+              <tr>
+                <th>Index</th>
+                <th>Email</th>
+                <th>Name</th>
+              </tr>
+            </thead>
+            <tbody>
+              {attendees.map(printAttendee)}
+            </tbody>
+          </table>
         </div>
       )
     } else {
@@ -19,8 +30,14 @@ function printAttendeeList (attendees) {
   }
 }
 
-function printAttendee (attendeeName, index) {
-  return <div key={index}>{index + 1}. {attendeeName}</div>
+function printAttendee (attendee, index) {
+  return (
+    <tr key={index}>
+      <td>{index + 1}</td>
+      <td>{attendee.email}</td>
+      <td>{attendee.name}</td>
+    </tr>
+  )
 }
 
 // Component rendering every workshop
@@ -95,8 +112,8 @@ Workshop = React.createClass({
     var attendees = this.props.workshop.attendees || [];
     var seatsAvailable = this.props.workshop.seats - attendees.length;
     var wdate = this.props.workshop.startAt.toString();
-    var userDates = (user && user.profile.dates) ? user.profile.dates.map((date) => date.toString()) : [];
-    var userSpots = (user && user.profile.dates) ? user.profile.dates.length : 0;
+    var userDates = (user && user.profile && user.profile.dates) ? user.profile.dates.map((date) => date.toString()) : [];
+    var userSpots = (user && user.profile && user.profile.dates) ? user.profile.dates.length : 0;
     var areThereSeatsAvailable = attendees.length < this.props.workshop.seats;
     var didRegistrationStarted = now > START_DATE;
     var isAdmin = user && Roles.userIsInRole(user, ['admin'])

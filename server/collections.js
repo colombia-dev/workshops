@@ -7,6 +7,14 @@ Meteor.publish('workshops', function() {
   return Workshops.find({});
 });
 
+// console.log(Meteor.users.find({ profile: {"$exists" : false} }).count())
+
+// This to fix users without profile!!
+Meteor.users.find({ profile: {"$exists" : false} })
+  .map(function(user) {
+    Meteor.users.update(user._id, {$set: {profile: {}}})
+  })
+
 // if ( Meteor.users.find().count() === 0 ) {
 //   console.log('Creating admin user!')
 //   Accounts.createUser({
@@ -20,6 +28,13 @@ Meteor.publish('workshops', function() {
 //   });
 // }
 
+Accounts.onCreateUser(function(options, user) {
+  // We're enforcing at least an empty profile object to avoid needing to check
+  // for its existence later.
+  user.profile = options.profile ? options.profile : {};
+  return user;
+})
+
 // Subscribe and unsubscribe a user to a workshop
 Meteor.methods({
   getWorkshopAttendees: function(workshopId) {
@@ -29,7 +44,10 @@ Meteor.methods({
       if (Array.isArray(workshop.attendees)) {
         return workshop.attendees.map(function(userId) {
           const userInW = Meteor.users.findOne({_id: userId})
-          return userInW && userInW.profile.name
+          return userInW && {
+            name: userInW.profile.name,
+            email: userInW.emails[0].address
+          }
         })
       }
     }

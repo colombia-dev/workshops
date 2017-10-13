@@ -7,18 +7,18 @@ Meteor.publish('workshops', function() {
   return Workshops.find({});
 });
 
-// if ( Meteor.users.find().count() === 0 ) {
-//   console.log('Creating admin user!')
-//   Accounts.createUser({
-//       username: 'g.avella@gmail.com',
-//       email: 'g.avella@gmail.com',
-//       password: 'asdfasdf',
-//       profile: {
-//           name: 'David Avellaneda',
-//           company: 'company',
-//       }
-//   });
-// }
+if ( Meteor.users.find().count() === 0 ) {
+  console.log('Creating admin user!')
+  Accounts.createUser({
+      username: 'edsadr@gmail.com',
+      email: 'edsadr@gmail.com',
+      password: 'test1234',
+      profile: {
+          name: 'Adrian Estrada',
+          company: 'company',
+      }
+  });
+}
 
 // Subscribe and unsubscribe a user to a workshop
 Meteor.methods({

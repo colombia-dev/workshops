@@ -10,9 +10,20 @@ MainLayout = React.createClass({
     var noUser;
 
     if (!this.data.currentUser) {
-      noUser = <div className="alert alert-warning" role="alert">If you don't have a user yet, please follow these instructions to register and get your spot:
-        <span/> <a href="http://jsconf.co/workshops/" className="text-info" target="_blank">Registration Instructions</a>
-      </div>
+      noUser = (
+        <div class="alert alert-warning" role="alert">
+          <span>If you don't have a user yet, please do this:</span>
+          <ol>
+            <li>Go to "Sign in" and click "Forgot password?"</li>
+            <li>Use the email you used to get your ticket at ti.to.</li>
+            <li>Reset the password.</li>
+            <li>Check your email and follow the instructions.</li>
+          </ol>
+          <span>If you get an error please contact us at </span>
+          <a href="mailto:hola@jsconf.co">hola@jsconf.co</a>
+          <span>.</span>
+        </div>
+      )
     }
 
     return <div>

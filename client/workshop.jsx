@@ -95,8 +95,9 @@ Workshop = React.createClass({
     var attendees = this.props.workshop.attendees || [];
     var seatsAvailable = this.props.workshop.seats - attendees.length;
     var wdate = this.props.workshop.startAt.toString();
-    var userDates = (user && user.profile.dates) ? user.profile.dates.map((date) => date.toString()) : [];
-    var userSpots = (user && user.profile.dates) ? user.profile.dates.length : 0;
+    var userProfile = (user && user.profile) ? user.profile : {};
+    var userDates = (userProfile && userProfile.dates) ? userProfile.dates.map((date) => date.toString()) : [];
+    var userSpots = (userProfile && userProfile.dates) ? userProfile.dates.length : 0;
     var areThereSeatsAvailable = attendees.length < this.props.workshop.seats;
     var didRegistrationStarted = now > START_DATE;
     var isAdmin = user && Roles.userIsInRole(user, ['admin'])

@@ -24,7 +24,7 @@ Workshop = React.createClass({
     var attendees = this.props.workshop.attendees || [];
     var seatsAvailable = this.props.workshop.seats - attendees.length;
     var wdate = this.props.workshop.startAt.toString();
-    var userDates = (user && user.profile.dates) ? user.profile.dates.map((date) => date.toString()) : [];
+    var userDates = (user && user.profile && user.profile.dates) ? user.profile.dates.map((date) => date.toString()) : [];
 
     if (user && attendees.indexOf(user._id) === -1 && attendees.length < this.props.workshop.seats && userDates.indexOf(wdate) === -1) {
       actionButton = <button type="button" className="btn btn-success" onClick={this.register}>Register to attend</button>;

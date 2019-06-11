@@ -1,8 +1,8 @@
-#Workshops
+# Workshops
 
 A simple Meteor application managing workshops attendees, initially intended for JSConf Colombia
 
-##Installing
+## Installing
 
 * Clone the repository
 * Install Meteor by running: `curl https://install.meteor.com/ | sh` in Mac or Linux - For windows use this [installer](https://install.meteor.com/windows)
